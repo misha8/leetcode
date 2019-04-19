@@ -1,32 +1,23 @@
 class Solution {
     
     public int[] twoSum(int[] nums, int target) {
-        
-        int[] arr=new int[2];
-        int n=nums.length;
-        
+
         HashMap<Integer,Integer> hm=new HashMap<>();
         
         for(int i=0;i<nums.length;i++)
         {
-            if(hm.containsKey(target-nums[i])){
+            int comp=target-nums[i];
+            if(hm.containsKey(comp)){
                 
-                int secIndex=hm.get(target-nums[i]);
-                arr[0]=secIndex;
-                arr[1]=i;
-                return arr;
+              return new int[]{hm.get(comp),i};
             
             }
-            else{
-                
-                hm.put(nums[i],i);
-            }
-            
-            
+           
+            hm.put(nums[i],i);
             
         }
         
-        return arr;
-        
+        throw new IllegalArgumentException("No two sum solution found");
     }
+       
 }
